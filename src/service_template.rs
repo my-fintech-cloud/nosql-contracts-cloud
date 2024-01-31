@@ -1,24 +1,24 @@
-use std::collections::{BTreeMap, HashMap};
+use std::collections::HashMap;
 
 use serde::{Deserialize, Serialize};
 service_sdk::macros::use_my_no_sql_entity!();
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct ServiceTemplatePortsCustom{
+pub struct ServiceTemplatePortsCustom {
     pub name: String,
     pub inner_port: i32,
     pub external_port: i32,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct ServiceTemplatePortsMapping{
+pub struct ServiceTemplatePortsMapping {
     pub http_port: Option<i32>,
     pub grpc_port: Option<i32>,
     pub custom_ports: Option<Vec<ServiceTemplatePortsCustom>>,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct ServiceTemplateResourcesNoSqlModel{
+pub struct ServiceTemplateResourcesNoSqlModel {
     pub memory_request: String,
     pub memory_limit: String,
     pub cpu_request: String,
@@ -26,13 +26,13 @@ pub struct ServiceTemplateResourcesNoSqlModel{
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct ServiceTemplateVolumesNoSqlModel{
+pub struct ServiceTemplateVolumesNoSqlModel {
     pub size_in_gb: i32,
     pub paths: Vec<String>,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct ServiceTemplateSettingsNoSqlModel{
+pub struct ServiceTemplateSettingsNoSqlModel {
     pub path: String,
     pub config_name: String,
     pub settings: String,
@@ -40,7 +40,7 @@ pub struct ServiceTemplateSettingsNoSqlModel{
 
 #[my_no_sql_entity("service-templates")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct ServiceTemplateNoSqlModel{
+pub struct ServiceTemplateNoSqlModel {
     pub name: String,
     pub replicas: i32,
     pub image: String,
@@ -52,7 +52,7 @@ pub struct ServiceTemplateNoSqlModel{
     pub resources: Option<ServiceTemplateResourcesNoSqlModel>,
     pub volumes: Option<ServiceTemplateVolumesNoSqlModel>,
     pub settings: Option<ServiceTemplateSettingsNoSqlModel>,
-    pub ports_mapping: Option<ServiceTemplatePortsMapping>
+    pub ports_mapping: Option<ServiceTemplatePortsMapping>,
 }
 
 impl ServiceTemplateNoSqlModel {
