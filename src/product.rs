@@ -4,7 +4,9 @@ service_sdk::macros::use_my_no_sql_entity!();
 #[my_no_sql_entity("products")]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct ProductNoSqlModel{
-    pub name: String
+    pub name: String,
+    pub services: Vec<String>,
+    pub infrastructure_services: Vec<String>
 }
 
 impl ProductNoSqlModel {
