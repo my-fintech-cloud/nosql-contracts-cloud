@@ -23,7 +23,8 @@ pub struct InfrastructureServiceTypeSelfHost{
     pub resources: Option<ServiceTemplateResourcesNoSqlModel>,
     pub volumes: Option<ServiceTemplateVolumesNoSqlModel>,
     pub settings: Option<ServiceTemplateSettingsNoSqlModel>,
-    pub ports_mapping: Option<ServiceTemplatePortsMapping>
+    pub ports_mapping: Option<ServiceTemplatePortsMapping>,
+    pub env_variables: HashMap<String, String>
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]

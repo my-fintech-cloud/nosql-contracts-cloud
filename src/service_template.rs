@@ -53,6 +53,7 @@ pub struct ServiceTemplateNoSqlModel {
     pub volumes: Option<ServiceTemplateVolumesNoSqlModel>,
     pub settings: Option<ServiceTemplateSettingsNoSqlModel>,
     pub ports_mapping: Option<ServiceTemplatePortsMapping>,
+    pub env_variables: HashMap<String, String>
 }
 
 impl ServiceTemplateNoSqlModel {
