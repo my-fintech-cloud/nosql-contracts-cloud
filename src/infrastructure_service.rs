@@ -24,7 +24,8 @@ pub struct InfrastructureServiceTypeSelfHost{
     pub volumes: Option<ServiceTemplateVolumesNoSqlModel>,
     pub settings: Option<ServiceTemplateSettingsNoSqlModel>,
     pub ports_mapping: Option<ServiceTemplatePortsMapping>,
-    pub env_variables: HashMap<String, String>
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub env_variables: Option<HashMap<String, String>>
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
